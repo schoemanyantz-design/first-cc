@@ -1,0 +1,193 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  -webkit-app-region: no-drag;
+}
+
+.container {
+  width: 400px;
+  height: 520px;
+  background: #1a1a2e;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 标题栏 */
+.titlebar {
+  width: 100%;
+  padding: 16px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  -webkit-app-region: drag;
+}
+
+.title {
+  color: #eee;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  color: #888;
+  font-size: 24px;
+  cursor: pointer;
+  -webkit-app-region: no-drag;
+  transition: color 0.2s;
+}
+
+.close-btn:hover {
+  color: #e94560;
+}
+
+/* 圆环计时器 */
+.timer-container {
+  position: relative;
+  width: 250px;
+  height: 250px;
+  margin: 20px 0;
+}
+
+.timer-ring {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.ring-bg {
+  fill: none;
+  stroke: #16213e;
+  stroke-width: 8;
+}
+
+.ring-progress {
+  fill: none;
+  stroke: #e94560;
+  stroke-width: 8;
+  stroke-linecap: round;
+  stroke-dasharray: 565.48;
+  stroke-dashoffset: 0;
+  transition: stroke-dashoffset 1s linear, stroke 0.5s;
+}
+
+.timer-display {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.time {
+  color: #fff;
+  font-size: 56px;
+  font-weight: 300;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 2px;
+}
+
+.status {
+  color: #888;
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+/* 番茄计数 */
+.pomodoro-count {
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 30px;
+}
+
+.pomodoro-count span {
+  color: #e94560;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+/* 控制按钮 */
+.controls {
+  display: flex;
+  gap: 16px;
+  padding: 0 40px;
+}
+
+.btn {
+  padding: 12px 28px;
+  border: none;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #e94560, #c23152);
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(233, 69, 96, 0.4);
+  min-width: 100px;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(233, 69, 96, 0.5);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.08);
+  color: #aaa;
+  backdrop-filter: blur(10px);
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+}
+
+/* 休息状态颜色 */
+.rest .ring-progress {
+  stroke: #3498db;
+}
+
+.long-rest .ring-progress {
+  stroke: #2ecc71;
+}
+
+.rest .pomodoro-count span {
+  color: #3498db;
+}
+
+.long-rest .pomodoro-count span {
+  color: #2ecc71;
+}
+
+.rest .btn-primary {
+  background: linear-gradient(135deg, #3498db, #2980b9);
+  box-shadow: 0 4px 15px rgba(52, 152, 219, 0.4);
+}
+
+.long-rest .btn-primary {
+  background: linear-gradient(135deg, #2ecc71, #27ae60);
+  box-shadow: 0 4px 15px rgba(46, 204, 113, 0.4);
+}

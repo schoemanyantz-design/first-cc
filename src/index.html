@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>番茄钟</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <!-- 标题栏 -->
+    <div class="titlebar">
+      <span class="title">番茄钟</span>
+      <button class="close-btn" id="closeBtn">&times;</button>
+    </div>
+
+    <!-- 圆环计时器 -->
+    <div class="timer-container">
+      <svg class="timer-ring" viewBox="0 0 200 200">
+        <circle class="ring-bg" cx="100" cy="100" r="90" />
+        <circle class="ring-progress" id="progressRing" cx="100" cy="100" r="90" />
+      </svg>
+      <div class="timer-display">
+        <div class="time" id="timeDisplay">25:00</div>
+        <div class="status" id="statusDisplay">工作中</div>
+      </div>
+    </div>
+
+    <!-- 番茄计数 -->
+    <div class="pomodoro-count">
+      <span id="pomodoroCount">0</span> 个番茄完成
+    </div>
+
+    <!-- 控制按钮 -->
+    <div class="controls">
+      <button class="btn btn-secondary" id="resetBtn">重置</button>
+      <button class="btn btn-primary" id="startBtn">开始</button>
+      <button class="btn btn-secondary" id="skipBtn">跳过</button>
+    </div>
+  </div>
+
+  <script src="renderer.js"></script>
+</body>
+</html>
